@@ -2,12 +2,12 @@
 
 http://cs231n.stanford.edu/
 
-My solutions to the assignments to the state-of-the-art course CS231n "Convolutional Neural Networks for Visual Recognition". It is hard but cool.
+My solutions to the assignments to the state-of-the-art course CS231n "Convolutional Neural Networks for Visual Recognition". It was hard, but it is cool.
 
 ## Framework
-During the course there was a chioce between two frameworks: **TensorFlow** and **PyTorch**. I decided to follow the **TensorFlow** track. Therefore no solution is provided for PyTorch. However, the might occur somewhere in the future.
+During the course, there was a choice between two frameworks: **TensorFlow** and **PyTorch**. I decided to follow the **TensorFlow** track. Therefore no solution is provided for PyTorch. However, the might occur somewhere in the future.
 
-## Content of the Assignments
+## Content of the Assignments (Spring 2017)
 There were three assignments during the Spring 2017 version of the course that I have completed.
 
 1. [[Assignment #1]](http://cs231n.github.io/assignments2017/assignment1/)

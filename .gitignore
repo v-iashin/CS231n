@@ -1,3 +1,6 @@
 assignment1/cs231n/datasets/cifar-10-batches-py/
 assignment2/cs231n/datasets/cifar-10-batches-py/
+assignment3/cs231n/datasets/coco_captioning/
+assignment3/cs231n/datasets/squeezenet*
+assignment3/cs231n/datasets/imagenet*
 .ipynb_checkpoints/

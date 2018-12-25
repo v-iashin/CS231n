@@ -495,21 +495,6 @@ def conv_backward_naive(dout, cache):
         for c in range(C):
             x_pad[n, c, :, :] = np.pad(x[n, c], pad, 'constant')
 
-
-    # dw
-    # dw = np.zeros_like(w)
-
-    # for f in range(F):
-    #     for c in range(C):
-    #         dw_ = np.zeros((1, 1, HH, WW))
-    #         for n in range(N):
-    #             for h_ in range(H):
-    #                 if h_ + HH <= H_pad:
-    #                     for w_ in range(W):
-    #                         if w_ + WW <= W_pad:
-    #                             dw_ += dout[n, f, h_, w_] * x_pad[n, c, h_:h_+HH, w_:w_+WW]
-    #         dw[f, c, :, :] = dw_
-
     dw = np.zeros_like(w)
 
     for f in range(F):
@@ -524,19 +509,6 @@ def conv_backward_naive(dout, cache):
                         x_w += stride
                     x_h += stride
             dw[f, c, :, :] = dw_
-
-    # dx 
-    # dx_pad = np.zeros((N, C, H_pad, W_pad))
-
-    # for n in range(N):
-    #     for c in range(C):
-    #         for h_ in range(H_pad):
-    #             if h_ + HH <= H_pad:
-    #                 for w_ in range(W_pad):
-    #                     if w_ + WW <= W_pad:
-    #                         for f in range(F):
-    #                             dx_pad[n, c, h_:h_+HH, w_:w_+WW] += dout[n, f, h_, w_] * w[f, c, :, :]
-    # dx = dx_pad[:, :, pad:H_pad-pad, pad:W_pad-pad]
 
     dx_pad = np.zeros((N, C, H_pad, W_pad))
 
@@ -739,36 +711,6 @@ def spatial_batchnorm_forward(x, gamma, beta, bn_param):
     else:
         raise ValueError('Invalid forward batchnorm mode "%s"' % mode)
     ###########################################################################
-    #     N, C, H, W = x.shape
-    # eps = bn_param.get('eps', 1e-5)
-    # momentum = bn_param.get('momentum', 0.9)
-    # running_mean = bn_param.get('running_mean', np.zeros(C, dtype=x.dtype))
-    # running_var = bn_param.get('running_var', np.zeros(C, dtype=x.dtype))
-
-    # # if bn_param['mode'] == 'train':
-    # # Step 1: (C, H, W)
-    # mean = x.sum(axis=0) / N
-    # # Step 2: (N, C, H, W)
-    # x_mean = x - mean
-    # # Step 3: (N, C, H, W)
-    # var_ = x_mean ** 2
-    # # Step 4: (C, H, W,)
-    # var = var_.sum(axis=0) / N
-    # # Step 5: (C, H, W,)
-    # sqrtvar = np.sqrt(var + eps)
-    # # Step 6: (C, H, W,)
-    # invsqrtvar = 1 / sqrtvar
-    # # Step 7: (N, C, H, W)
-    # x_hat = x_mean * invsqrtvar.reshape(1, C, H, W)
-    # # Step 8: (N, C, H, W):
-    # gamma_xhat = gamma.reshape(1, C, 1, 1) * x_hat
-    # # Step 9: (N, D)
-    # out = gamma_xhat + beta.reshape(1, C, 1, 1)
-
-    # # bn_param['running_mean'] = momentum*running_mean.reshape(1, C, 1, 1) + (1-momentum)*mean
-    # # bn_param['running_var'] = momentum*running_var.reshape(1, C, 1, 1) + (1-momentum)*var
-
-    # cache = bn_param, gamma, x, x_hat, invsqrtvar, x_mean, sqrtvar, var, var_
     #                             END OF YOUR CODE                            #
     ###########################################################################
 
